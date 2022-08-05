@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div id="game">
+        <div class="row">
+            {% for row in board %}
+            <div class=" row row-cols-5">
+                {% for piece in row %}
+                    <div class="col piece">
+                        {{piece}}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+    </div>
+ </div>
+     
+ <p>High Score: 
+    <b>{{ highscore }}</b> 
+    in {{ numplays }} plays
+  </p>
+
+  <p>
+    Score: <b class="score">0</b>
+    Seconds Left: <b class="timer"></b>
+  </p>
+
+    <div class="">
+        <form action="/find_word" class="add-word" method="POST">
+            <input type="text" name="word" class="word" autofocus>
+            <button type="submit" class="btn btn-primary"> Submit Guess </button>
+        </form>
+    </div>
+</div>
+
+<p class="msg">
+  </p>
+
+  <ul class="words">
+  </ul>
+ 
+{% endblock %}
